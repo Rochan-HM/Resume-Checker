@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Checker</title>
+</head>
+<body>
+    <center><h1>RESUME CHECKER</h1></center>
+    <form method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <h2>Upload Resume: </h2>
+        {{ form.resume }}
+        <br/>
+        {% for error in form.resume.errors %}
+         <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+        <br/><br/><br/>
+        <h2>Paste Job Description: </h2>
+        {{ form.description(rows='20',cols='100') }}
+        <br/>
+        {% for error in form.description.errors %}
+         <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+        <br/><br/><br/>
+        <button type="submit">SUBMIT</button>
+    </form>
+</body>
+</html>
